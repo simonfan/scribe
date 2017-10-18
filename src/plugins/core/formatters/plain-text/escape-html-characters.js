@@ -1,4 +1,6 @@
-define('lodash-amd/modern/internal/baseToString',[], function() {
+define(function () {
+
+  'use strict';
 
   /**
    * Converts `value` to a string if it is not one. An empty string is returned
@@ -14,11 +16,6 @@ define('lodash-amd/modern/internal/baseToString',[], function() {
     }
     return value == null ? '' : (value + '');
   }
-
-  return baseToString;
-});
-
-define('lodash-amd/modern/internal/escapeHtmlChar',[], function() {
 
   /** Used to map characters to HTML entities. */
   var htmlEscapes = {
@@ -40,11 +37,6 @@ define('lodash-amd/modern/internal/escapeHtmlChar',[], function() {
   function escapeHtmlChar(chr) {
     return htmlEscapes[chr];
   }
-
-  return escapeHtmlChar;
-});
-
-define('lodash-amd/modern/string/escape',['../internal/baseToString', '../internal/escapeHtmlChar'], function(baseToString, escapeHtmlChar) {
 
   /** Used to match HTML entities and HTML characters. */
   var reUnescapedHtml = /[&<>"'`]/g,
@@ -89,18 +81,6 @@ define('lodash-amd/modern/string/escape',['../internal/baseToString', '../intern
       ? string.replace(reUnescapedHtml, escapeHtmlChar)
       : string;
   }
-
-  return escape;
-});
-
-
-define([
-  'lodash-amd/modern/string/escape'
-], function (
-  escape
-) {
-
-  'use strict';
 
   return function () {
     return function (scribe) {
